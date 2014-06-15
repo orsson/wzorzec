@@ -14,7 +14,7 @@ using namespace System::Threading;
 
 static void connection()
 {	
-	MessageBox::Show( "odpalam!");
+	
 try
    {
       // Set the TcpListener on port 13000.
@@ -87,9 +87,9 @@ try
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)
 {
-//	ThreadStart^ threadDelegate = gcnew ThreadStart(connection);
-	//Thread^ newThread1 = gcnew Thread( threadDelegate );
-//	newThread1->Start();
+	ThreadStart^ threadDelegate = gcnew ThreadStart(connection);
+	Thread^ newThread1 = gcnew Thread( threadDelegate );
+	newThread1->Start();
 
 	// Enabling Windows XP visual effects before any controls are created
 	Application::EnableVisualStyles();
